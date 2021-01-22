@@ -9,10 +9,26 @@
 
   <div class="row">
     <div class="col-md-12">
+      <form action="/additem" method="POST">
+        <label for="fname">New To-Do Item</label><br>
+        <input type="text" id="fname" name="newtodo"><br>
+      </form>
+      
       <h2>Items</h2>
-      <ul class="list-group mb-4">
-        <!-- List the todo items here -->
-      </ul>
+        <table style="width:100%">
+          <tr>
+            <th>ID</th>
+            <th>STATUS</th>
+            <th>TITLE</th>
+          </tr>
+          {% for item in items %}
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.title}}</td>
+          </tr>
+          {% endfor %}
+        </table>
     </div>
   </div>
 {% endblock %}
